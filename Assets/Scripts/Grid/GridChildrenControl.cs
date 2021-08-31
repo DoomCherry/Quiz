@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Linq;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace QuizGame.Grid
 {
-    public class GridChildrenControl : MonoBehaviour, IInitialisable
+    [RequireComponent(typeof(GridResolutionFilter))]
+    public class GridChildrenControl : SerializableMonoBehavior, IRectable, IActivatror
     {
         /// <summary>
         /// На случай если количество детей сетки будет превышать общую вместимость сетки
@@ -14,29 +17,41 @@ namespace QuizGame.Grid
         public enum RemainsInstructions
         {
             OverflowHight = 1,          // Уберет ограничение по высоте
-            ClampAllHideRemains = 2,    // Скроет лишние элементы.
+            HideAllRemains = 2,    // Скроет лишние элементы.
         }
 
         [SerializeField] private int _cellCountInWidth = 3, _cellCountinHight = 3;
         [SerializeField] private Vector2 _cellStep = Vector2.one;
         [SerializeField] private RemainsInstructions remainsAction;
-
-        private Cell[] _children;
-        private Transform _myTransform;
+        public int CellCountInWidth => _cellCountInWidth;
+        public int CellCountInHight => _cellCountinHight;
+        public Cell[] _cellChildren { get; private set; }
+        public UnityEvent OnInitialize;
+        public Action OnSorted;
         void Start()
         {
             Initialize();
             SortByGrid();
         }
 
-
+        public override void Initialize()
+        {
+            base.Initialize();
+            var cellChildren = children.Select(c => c.GetComponent<Cell>());
+            _cellChildren = cellChildren.Where(c => c != null).ToArray();
+            for (int i = 0; i < _cellChildren.Length; i++)
+            {
+                _cellChildren[i].Initialize();
+            }
+            OnInitialize?.Invoke();
+        }
 
         public void SortByGrid()
         {
             Vector2 currentCellPosition = Vector2.zero;
-            for (int i = 0; i < _children.Length; i++)
+            for (int i = 0; i < _cellChildren.Length; i++)
             {
-                _children[i].myTransform.position = currentCellPosition * _cellStep;
+                _cellChildren[i].myTransform.localPosition = currentCellPosition * _cellStep;
                 currentCellPosition.x++;
                 if (currentCellPosition.x >= _cellCountInWidth)
                 {
@@ -45,32 +60,40 @@ namespace QuizGame.Grid
                 }
             }
             SetRemainsInstruction();
+            OnSorted?.Invoke();
         }
 
-        public void Initialize()
-        {
-            _myTransform = transform;
-            _children = _myTransform.GetComponentsInChildren<Cell>();
-            for (int i = 0; i < _children.Length; i++)
-            {
-                _children[i].Initialize();
-            }
-        }
+        
 
         private void SetRemainsInstruction()
         {
-            for (int i = 0; i < _children.Length; i++)
+            for (int i = 0; i < _cellChildren.Length; i++)
             {
                 bool isActive = true;
                 switch (remainsAction)
                 {
-                    case RemainsInstructions.ClampAllHideRemains:
+                    case RemainsInstructions.HideAllRemains:
                         if (i >= _cellCountInWidth * _cellCountinHight)
                             isActive = false;
                         break;
                 }
-                _children[i].SetActivateCell(isActive);
+                _cellChildren[i].SetActivateCell(isActive);
             }
+        }
+
+        public Vector2Int GetSize()
+        {
+            return new Vector2Int(_cellCountInWidth, _cellCountinHight);
+        }
+
+        public void OnAction(Action additionalAaction)
+        {
+            OnSorted += additionalAaction;
+        }
+
+        public Vector2 GetPosition()
+        {
+            return myTransform.localPosition;
         }
     }
 }

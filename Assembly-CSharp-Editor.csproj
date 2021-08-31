@@ -63,8 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Editor\Animation\EditorBouncer.cs" />
+    <Compile Include="Assets\Scripts\Editor\Animation\EditorBouncerPosition.cs" />
+    <Compile Include="Assets\Scripts\Editor\Animation\EditorBouncerScale.cs" />
     <Compile Include="Assets\Scripts\Editor\EditorGridChildrenControl.cs" />
+    <Compile Include="Assets\Scripts\Editor\EditorInitialisableActivator.cs" />
+    <Compile Include="Assets\Scripts\Editor\EditorSpawner.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/GateGameWorld/Unity/2019.4.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -269,14 +272,14 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>D:/GateGameWorld/Games/Endless/When can i go to home Prototype/Quiz/Library/PackageCache/com.unity.ext.nunit@1.0.5/net35/unity-custom/nunit.framework.dll</HintPath>
+    <Reference Include="DOTween">
+      <HintPath>D:/GateGameWorld/Games/Endless/When can i go to home Prototype/Quiz/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
       <HintPath>D:/GateGameWorld/Games/Endless/When can i go to home Prototype/Quiz/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>D:/GateGameWorld/Games/Endless/When can i go to home Prototype/Quiz/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+    <Reference Include="nunit.framework">
+      <HintPath>D:/GateGameWorld/Games/Endless/When can i go to home Prototype/Quiz/Library/PackageCache/com.unity.ext.nunit@1.0.5/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>D:/GateGameWorld/Unity/2019.4.17f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -665,14 +668,14 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:/GateGameWorld/Games/Endless/When can i go to home Prototype/Quiz/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/GateGameWorld/Games/Endless/When can i go to home Prototype/Quiz/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/GateGameWorld/Games/Endless/When can i go to home Prototype/Quiz/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/GateGameWorld/Games/Endless/When can i go to home Prototype/Quiz/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:/GateGameWorld/Games/Endless/When can i go to home Prototype/Quiz/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

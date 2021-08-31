@@ -4,24 +4,18 @@ using UnityEngine;
 
 namespace QuizGame.Grid
 {
-    public class Cell : MonoBehaviour, IInitialisable
+    public class Cell : SerializableMonoBehavior
     {
-        [SerializeField] private SpriteRenderer sprite;
-        public Transform myTransform { get; private set; }
+        public bool IsActive => _isActive;
 
-
-        void Update()
-        {
-
-        }
-
+        private bool _isActive;
         public void SetActivateCell(bool isActivate)
         {
-            sprite.enabled = isActivate;
-        }
-        public void Initialize()
-        {
-            myTransform = transform;
+            _isActive = isActivate;
+            for (int i = 0; i < children.Length; i++)
+            {
+                children[i].SetActive(isActivate);
+            }
         }
     }
 }

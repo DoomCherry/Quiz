@@ -10,7 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 936684945485183687}
   - component: {fileID: 3874680695554271964}
-  m_Layer: 0
+  - component: {fileID: 1299442523044704354}
+  - component: {fileID: 4498406744903151326}
+  - component: {fileID: 1818940546787097404}
+  - component: {fileID: 7961702799994458071}
+  m_Layer: 8
   m_Name: Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +50,110 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf46e9b348e3974390ff9f955b02d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1299442523044704354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936684945485183686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab008a8c5ae90049a1c6b5c0a0e7acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   sprite: {fileID: 8313200473299473256}
+  background: {fileID: 6544719371382880420}
+--- !u!114 &4498406744903151326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936684945485183686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 760c2cb4ea1139b40b0d304d06fd68b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7961702799994458071}
+        m_MethodName: GetAnsware
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &1818940546787097404
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936684945485183686}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.7, y: 4.7, z: 0.1}
+  m_Center: {x: 0.05, y: 0, z: 0}
+--- !u!114 &7961702799994458071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936684945485183686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc94b5ff1069cf24b9c24da1f8337b17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnRightAnsware:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7298054968116904692}
+        m_MethodName: Bouncing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1374921566616501631}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnWrongAnsware:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751138685648365449}
+        m_MethodName: Bouncing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1377828024274737611
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,8 +164,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2494828094696719053}
   - component: {fileID: 8313200473299473256}
-  - component: {fileID: 8715812527304815125}
-  - component: {fileID: 2235073983007457917}
+  - component: {fileID: 1751138685648365449}
+  - component: {fileID: 7298054968116904692}
   m_Layer: 0
   m_Name: Cell
   m_TagString: Untagged
@@ -131,7 +238,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8715812527304815125
+--- !u!114 &1751138685648365449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,29 +247,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1377828024274737611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 152e3c9094df5434e9ce2b140e2139df, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a214d41f51b93248be450093d5f3d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceInstruction: 0
-  _timeToBounceSecond: 0.3
-  _strengthMax: {x: 1.4, y: 1.4}
-  _strengthMin: {x: 0.8, y: 0.8}
---- !u!114 &2235073983007457917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377828024274737611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 152e3c9094df5434e9ce2b140e2139df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceInstruction: 1
   _timeToBounceSecond: 0.3
   _strengthMax: {x: 0.4, y: 0}
   _strengthMin: {x: -0.4, y: 0}
+--- !u!114 &7298054968116904692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377828024274737611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a088a8fccd5dc8449f0e26b1e397bd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToBounceSecond: 0.3
+  _strengthMax: {x: 1.4, y: 1.4}
+  _strengthMin: {x: 0.8, y: 0.8}
 --- !u!1 &6673801540383304720
 GameObject:
   m_ObjectHideFlags: 0
@@ -4961,7 +5066,7 @@ Transform:
   m_GameObject: {fileID: 9070347574596948145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.049, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 936684945485183687}
   m_RootOrder: 0

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuizGame
 {
-    interface IInitialisable
+    public interface IInitialisable
     {
         void Initialize();
     }
