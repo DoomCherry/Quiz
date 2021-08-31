@@ -63,9 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Bouncer.cs" />
+    <Compile Include="Assets\Scripts\Animation\Bouncer.cs" />
     <Compile Include="Assets\Scripts\Grid\Cell.cs" />
     <Compile Include="Assets\Scripts\Grid\GridChildrenControl.cs" />
+    <Compile Include="Assets\Scripts\Interfases\IInitialisable.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/GateGameWorld/Unity/2019.4.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace QuizGame.Grid
 {
-    public class GridChildrenControl : MonoBehaviour
+    public class GridChildrenControl : MonoBehaviour, IInitialisable
     {
         /// <summary>
         /// На случай если количество детей сетки будет превышать общую вместимость сетки
@@ -29,11 +29,6 @@ namespace QuizGame.Grid
             SortByGrid();
         }
 
-
-        void Update()
-        {
-
-        }
 
 
         public void SortByGrid()

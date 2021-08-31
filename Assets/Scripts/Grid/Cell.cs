@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace QuizGame.Grid
 {
-    public class Cell : MonoBehaviour
+    public class Cell : MonoBehaviour, IInitialisable
     {
         [SerializeField] private SpriteRenderer sprite;
         public Transform myTransform { get; private set; }
