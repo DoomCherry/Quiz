@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: -2983290644488427326, guid: 85757e2478dcd3741b49f4557a2ae377, type: 3}
   _defaultRotate: 0
-  _simbol: 89
+  _simbol: 86

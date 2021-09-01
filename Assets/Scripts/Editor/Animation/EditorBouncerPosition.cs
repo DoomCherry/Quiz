@@ -18,7 +18,7 @@ namespace QuizEditor.Animation
 
             public override void OnInspectorGUI()
             {
-                TestActivator("Test bounce position (Game only)", bouncer.Bouncing);
+                TestActivator("Test bounce position (Game only)", delegate { bouncer.Bouncing(); });
                 base.OnInspectorGUI();
             }
         }

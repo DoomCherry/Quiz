@@ -21,8 +21,17 @@ namespace QuizGame.Animation
             Sequence sequence = DOTween.Sequence();
             for (int i = 0; i < findingBouncingGroup.Length; i++)
             {
-                sequence.AppendCallback(findingBouncingGroup[i].Bouncing);
+                sequence.AppendCallback(findingBouncingGroup[i].VoidBouncing);
                 sequence.AppendInterval(delayTime);
+            }
+        }
+
+        public void BouncersSetDefault()
+        {
+            FindBouncingElement();
+            for (int i = 0; i < findingBouncingGroup.Length; i++)
+            {
+                findingBouncingGroup[i].SetDefault();
             }
         }
 

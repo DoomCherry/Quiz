@@ -19,7 +19,12 @@ namespace QuizGame.Animation
             _defaultPosition = myTransform.localPosition;
         }
 
-        public void Bouncing()
+        public void VoidBouncing()
+        {
+            Bouncing();
+        }
+
+        public Sequence Bouncing()
         {
             Sequence sequence;
             Func<Vector3, float, TweenerCore<Vector3, Vector3, VectorOptions>> rePosition = delegate (Vector3 strength, float time)
@@ -28,6 +33,12 @@ namespace QuizGame.Animation
             };
             sequence = BouncingWithMetod(rePosition, _strengthMax, _strengthMin);
             sequence.Append(rePosition(_defaultPosition, _timeToBounceSecond));
+            return sequence;
+        }
+
+        public void SetDefault()
+        {
+            myTransform.localPosition = _defaultPosition;
         }
     }
 }

@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Animation\BouncerPosition.cs" />
     <Compile Include="Assets\Scripts\Animation\BouncerScaler.cs" />
     <Compile Include="Assets\Scripts\Animation\BouncingDynamicGroup.cs" />
+    <Compile Include="Assets\Scripts\BouncerScaleFadeOut.cs" />
     <Compile Include="Assets\Scripts\ClickFinder\CellButton.cs" />
     <Compile Include="Assets\Scripts\ClickFinder\ClickFinder.cs" />
     <Compile Include="Assets\Scripts\ContainerController.cs" />

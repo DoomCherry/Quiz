@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 936684945485183686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.872485, y: 1.11, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0}
   m_Children:
   - {fileID: 7639471388864323097}
   - {fileID: 2494828094696719053}
@@ -121,7 +121,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7298054968116904692}
-        m_MethodName: Bouncing
+        m_MethodName: VoidBouncing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1751138685648365449}
-        m_MethodName: Bouncing
+        m_MethodName: VoidBouncing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   _timeToBounceSecond: 1
   _strengthMax: {x: 1.4, y: 1.4}
   _strengthMin: {x: 0.5, y: 0.5}
-  _defaultScaleInFade: {x: 1, y: 1}
+  _defaultScale: {x: 1, y: 1}
 --- !u!1 &1377828024274737611
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
   _timeToBounceSecond: 0.3
   _strengthMax: {x: 1.4, y: 1.4}
   _strengthMin: {x: 0.8, y: 0.8}
-  _defaultScaleInFade: {x: 1, y: 1}
+  _defaultScale: {x: 1, y: 1}
 --- !u!1 &6673801540383304720
 GameObject:
   m_ObjectHideFlags: 0

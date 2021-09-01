@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 8596245}
   - component: {fileID: 8596244}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BackgroundText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,13 +207,15 @@ GameObject:
   - component: {fileID: 426087200}
   - component: {fileID: 426087202}
   - component: {fileID: 426087201}
+  - component: {fileID: 426087204}
+  - component: {fileID: 426087203}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Load
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &426087200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -223,17 +225,16 @@ RectTransform:
   m_GameObject: {fileID: 426087199}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1329645297}
+  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_Children: []
   m_Father: {fileID: 1212184696}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: -2, y: -2}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &426087201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 0.6862745}
+  m_Color: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -271,6 +272,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426087199}
   m_CullTransparentMesh: 0
+--- !u!114 &426087203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426087199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679d52168efeda847929766e118c4c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToBounceSecond: 1
+  _strengthMax: {x: 2, y: 2}
+  _strengthMin: {x: 0.5, y: 0.5}
+  _defaultScale: {x: 0, y: 0}
+--- !u!114 &426087204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426087199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a088a8fccd5dc8449f0e26b1e397bd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToBounceSecond: 0.3
+  _strengthMax: {x: 2, y: 2}
+  _strengthMin: {x: 0.5, y: 0.5}
+  _defaultScale: {x: 1, y: 1}
 --- !u!1 &676198477
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +374,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1203011520}
         m_MethodName: AutoResolute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1203011522}
+        m_MethodName: BouncersSetDefault
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -448,7 +492,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 426087199}
+      - m_Target: {fileID: 1329645296}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -575,7 +619,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 426087199}
+      - m_Target: {fileID: 1329645296}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -586,6 +630,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  onStageReset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 426087203}
+        m_MethodName: VoidBouncing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  testLoadTime: 1
 --- !u!4 &938922957
 Transform:
   m_ObjectHideFlags: 0
@@ -813,7 +872,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1355405108}
-        m_MethodName: Bouncing
+        m_MethodName: VoidBouncing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -835,7 +894,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2027252956}
-        m_MethodName: Bouncing
+        m_MethodName: VoidBouncing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1213,6 +1272,7 @@ RectTransform:
   m_Children:
   - {fileID: 8596243}
   - {fileID: 426087200}
+  - {fileID: 1329645297}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1247,12 +1307,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329645296}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 426087200}
-  m_RootOrder: 0
+  m_Father: {fileID: 1212184696}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1304,6 +1364,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 938922956}
         m_MethodName: ResetStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 426087204}
+        m_MethodName: VoidBouncing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1399,7 +1470,7 @@ MonoBehaviour:
   _timeToBounceSecond: 0.5
   _strengthMax: {x: 1.5, y: 1.5}
   _strengthMin: {x: 0.5, y: 0.5}
-  _defaultScaleInFade: {x: 0.3, y: 0.3}
+  _defaultScale: {x: 0.3, y: 0.3}
 --- !u!1 &1426883690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,13 +1640,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1824453535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e18a7350b20e1d4e944203212f8b413, type: 3}
+  m_Script: {fileID: 11500000, guid: ad4f671e2e9e1264ba630cf319640ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onAwake:
     m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2027252952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,7 +1685,7 @@ RectTransform:
   m_GameObject: {fileID: 2027252952}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0}
   m_Children: []
   m_Father: {fileID: 8596243}
   m_RootOrder: 0
@@ -1670,4 +1751,4 @@ MonoBehaviour:
   _timeToBounceSecond: 0.5
   _strengthMax: {x: 1.5, y: 1.5}
   _strengthMin: {x: 0.5, y: 0.5}
-  _defaultScaleInFade: {x: 1, y: 1}
+  _defaultScale: {x: 1, y: 1}
