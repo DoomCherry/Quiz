@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using System;
 
 namespace QuizGame.Grid
 {
@@ -25,16 +26,23 @@ namespace QuizGame.Grid
 
         private void ChangePosition()
         {
+            myTransform.position += GetFloatMidPoint();
+        }
+
+        private Vector3 GetFloatMidPoint()
+        {
             Vector3 startPosition = Vector3.zero;
             Vector2 size = grid.GetSize();
             Vector2 position = grid.GetPosition();
             var GridElements = _cellChildren.Where(p => p.IsActive)
-                                              .Select(p => (_gridParent.InverseTransformVector(p.myTransform.position) - (Vector3)position));
-            var xGridElement = GridElements.Select(p => (p.x)).Distinct().Sum();
-            var yGridElement = GridElements.Select(p => (p.y)).Distinct().Sum();
-            startPosition.x = xGridElement / size.x;
-            startPosition.y = yGridElement / size.y;
-            myTransform.localPosition = new Vector3(startPosition.x, startPosition.y, myTransform.position.y) * -1;
+                                              .Select(p => p.myTransform.localPosition);
+            Vector2 result;
+            var allUniqye = GridElements.Select(p => (p.x)).Distinct();
+            result.x = allUniqye.Sum() / allUniqye.Count();
+            allUniqye = GridElements.Select(p => (p.y)).Distinct();
+            result.y = allUniqye.Sum() / allUniqye.Count();
+            result = _gridParent.position - grid.transform.TransformPoint(result);
+            return new Vector3((float)Math.Round(result.x, 3), (float)Math.Round(result.y, 3), myTransform.position.z);
         }
     }
 }

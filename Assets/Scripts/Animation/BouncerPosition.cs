@@ -9,7 +9,7 @@ using DG.Tweening.Plugins.Options;
 
 namespace QuizGame.Animation
 {
-    public class BouncerPosition : Bouncer
+    public class BouncerPosition : Bouncer, IBounce
     {
         private Vector2 _defaultPosition;
 

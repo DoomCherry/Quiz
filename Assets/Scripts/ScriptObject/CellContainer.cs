@@ -5,7 +5,16 @@ namespace QuizGame
 {
     public class CellContainer : ScriptableObject
     {
-        public Sprite icon;
-        public float defaultRotate;
+        [SerializeField] protected Sprite _icon;
+        [SerializeField] protected float _defaultRotate;
+        
+
+        public Sprite Icon => _icon;
+        public float DefaultRotate => _defaultRotate;
+
+        public virtual string GetAnsware()
+        {
+            return "";
+        }
     }
 }

@@ -1,27 +1,34 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class QuizVariantAnswer : MonoBehaviour
 {
-    public bool thisAnswareIsRight { get; private set; }
-    [SerializeField] private UnityEvent OnRightAnsware;
-    [SerializeField] private UnityEvent OnWrongAnsware;
+    public bool ThisAnswareIsRight { get; private set; }
+    [SerializeField] private UnityEvent _onRightAnsware;
+    [SerializeField] private UnityEvent _onWrongAnsware;
     void Start()
     {
 
     }
 
+    public void SetRightAnsware(Action additionalAction)
+    {
+        ThisAnswareIsRight = true;
+        _onRightAnsware.AddListener( delegate { additionalAction?.Invoke(); });
+    }
+
     public void GetAnsware()
     {
-        if(thisAnswareIsRight)
+        if(ThisAnswareIsRight)
         {
-            OnRightAnsware?.Invoke();
+            _onRightAnsware?.Invoke();
         }
         else
         {
-            OnWrongAnsware?.Invoke();
+            _onWrongAnsware?.Invoke();
         }
     }
 }

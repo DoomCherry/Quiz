@@ -9,16 +9,16 @@ using DG.Tweening.Plugins.Options;
 
 namespace QuizGame.Animation
 {
-    public class BouncerScaler : Bouncer
+    public class BouncerScaler : Bouncer, IBounce
     {
-        private Vector2 _defaultScale;
-        private Vector2 StrengthMax => _defaultScale * _strengthMax;
-        private Vector2 StrengthMin => _defaultScale * _strengthMin;
+        [SerializeField] private Vector2 _defaultScaleInFade;
+        private Vector2 StrengthMax =>  _defaultScaleInFade* _strengthMax;
+        private Vector2 StrengthMin =>  _defaultScaleInFade* _strengthMin;
         public override void Initialize()
         {
             base.Initialize();
-            _defaultScale = myTransform.localScale;
         }
+
 
         public void Bouncing()
         {
@@ -27,8 +27,8 @@ namespace QuizGame.Animation
             {
                 return myTransform.DOScale(strength, time);
             };
-            sequence = BouncingWithMetod(reScale,StrengthMax, StrengthMin);
-            sequence.Append(reScale(_defaultScale, _timeToBounceSecond));
+            sequence = BouncingWithMetod(reScale, StrengthMax, StrengthMin);
+            sequence.Append(reScale(_defaultScaleInFade, _timeToBounceSecond));
         }
     }
 }

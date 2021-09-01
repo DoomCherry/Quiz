@@ -20,11 +20,11 @@ namespace QuizGame.Grid
             HideAllRemains = 2,    // Скроет лишние элементы.
         }
 
-        [SerializeField] private int _cellCountInWidth = 3, _cellCountinHight = 3;
+        [SerializeField] private int _cellCountInWidth = 3, _cellCountInHight = 3;
         [SerializeField] private Vector2 _cellStep = Vector2.one;
         [SerializeField] private RemainsInstructions remainsAction;
         public int CellCountInWidth => _cellCountInWidth;
-        public int CellCountInHight => _cellCountinHight;
+        public int CellCountInHight => _cellCountInHight;
         public Cell[] _cellChildren { get; private set; }
         public UnityEvent OnInitialize;
         public Action OnSorted;
@@ -63,7 +63,14 @@ namespace QuizGame.Grid
             OnSorted?.Invoke();
         }
 
-        
+        public void SetGridWidth(int width)
+        {
+            _cellCountInWidth = width;
+        }
+        public void SetGridHidth(int hight)
+        {
+            _cellCountInHight = hight;
+        }
 
         private void SetRemainsInstruction()
         {
@@ -73,7 +80,7 @@ namespace QuizGame.Grid
                 switch (remainsAction)
                 {
                     case RemainsInstructions.HideAllRemains:
-                        if (i >= _cellCountInWidth * _cellCountinHight)
+                        if (i >= _cellCountInWidth * _cellCountInHight)
                             isActive = false;
                         break;
                 }
@@ -83,7 +90,7 @@ namespace QuizGame.Grid
 
         public Vector2Int GetSize()
         {
-            return new Vector2Int(_cellCountInWidth, _cellCountinHight);
+            return new Vector2Int(_cellCountInWidth, _cellCountInHight);
         }
 
         public void OnAction(Action additionalAaction)

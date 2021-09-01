@@ -13,13 +13,19 @@ namespace QuizGame.ClickFinder
         {
             _mainCamera = Camera.main;
         }
+        private bool isActive = true;
+
+        public void ActivateClickFinder(bool activate)
+        {
+            isActive = activate;
+        }
 
         void FixedUpdate()
         {
             RaycastHit hitInfo;
             Vector3 mousePositionInWorldSpace = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             Vector3 endDir = mousePositionInWorldSpace + Vector3.forward * maxRayClickDistance;
-            if (Physics.Raycast(mousePositionInWorldSpace, endDir, out hitInfo, maxRayClickDistance, CellButton, QueryTriggerInteraction.Collide) && Input.GetMouseButton(0))
+            if (Physics.Raycast(mousePositionInWorldSpace, endDir, out hitInfo, maxRayClickDistance, CellButton, QueryTriggerInteraction.Collide) && Input.GetMouseButtonDown(0) && isActive)
             {
                 CellButton buttonCollider = hitInfo.collider.GetComponent<CellButton>();
                 buttonCollider.Click();

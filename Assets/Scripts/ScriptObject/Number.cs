@@ -6,6 +6,12 @@ namespace QuizGame
     [CreateAssetMenu(fileName = "NumberContainer", menuName = "QuizContainers/Number")]
     public class Number : CellContainer
     {
-        public int number;
+        [SerializeField]private int _number;
+
+        public override string GetAnsware()
+        {
+            return _number.ToString();
+
+        }
     }
 }
