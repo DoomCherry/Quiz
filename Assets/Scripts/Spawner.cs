@@ -25,7 +25,7 @@ namespace QuizGame
                     {
                         _uniqueSequence[i] = i;
                     }
-                    _uniqueSequence = _uniqueSequence.OrderBy(x => UnityEngine.Random.Range(0, 100)).ToArray();
+                    _uniqueSequence = _uniqueSequence.OrderBy(x => UnityEngine.Random.Range(0, int.MaxValue)).ToArray();
                 }
             }
             public CellContainer[] CellContainers => _cellContainers;
@@ -102,7 +102,7 @@ namespace QuizGame
                 collectForMix = collectForMix.Union(newContainerCollection).ToArray();
             }
             collectForMix = collectForMix.Take(count).ToArray();
-            collectForMix = collectForMix.OrderBy(x => UnityEngine.Random.Range(0,100)).ToArray();                               // Рандомная последовательность коллекции с хотя бы одним уникальным элементом
+            collectForMix = collectForMix.OrderBy(x => UnityEngine.Random.Range(0,int.MaxValue)).ToArray();                               // Рандомная последовательность коллекции с хотя бы одним уникальным элементом
             _uniqueIndex = UnityEngine.Random.Range(0, collectForMix.Length);
             collectForMix[_uniqueIndex] = uniqueCell;
 

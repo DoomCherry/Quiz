@@ -63,7 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Animation\BounceScaleFadeIn.cs" />
     <Compile Include="Assets\Scripts\Animation\Bouncer.cs" />
     <Compile Include="Assets\Scripts\Animation\BouncerPosition.cs" />
     <Compile Include="Assets\Scripts\Animation\BouncerScaler.cs" />
@@ -89,7 +88,6 @@
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\StageController\Stage.cs" />
     <Compile Include="Assets\Scripts\StageController\StageGame.cs" />
-    <Compile Include="Assets\Scripts\StageController\StageResetGame.cs" />
     <Compile Include="Assets\Scripts\StageScript.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/GateGameWorld/Unity/2019.4.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

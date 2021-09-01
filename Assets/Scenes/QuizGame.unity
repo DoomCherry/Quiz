@@ -1051,7 +1051,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bade8dba2bc3b624db8e5014d7c5005b, type: 2}
     - {fileID: 11400000, guid: bdb9452bcc6f7f0469c93c83eb5fb7b7, type: 2}
     - {fileID: 11400000, guid: 159de4f857a128c4f976070af95bbc9a, type: 2}
-    _collectionNameInSingular: "\u0427\u0438\u0441\u043B\u043E"
   - _cellContainers:
     - {fileID: 11400000, guid: 9c4af61178ce9694da2369d8bcfd3172, type: 2}
     - {fileID: 11400000, guid: bd82fb81f104c554d9f219b4e972e108, type: 2}
@@ -1079,7 +1078,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 10183efcb51444c4dac1e952419837c2, type: 2}
     - {fileID: 11400000, guid: 4ece59753703bdd47b90eccbc9c1d7f2, type: 2}
     - {fileID: 11400000, guid: fb63a6700d0e9cf47a2f8405f4e34c61, type: 2}
-    _collectionNameInSingular: "\u0427\u0438\u0441\u043B\u043E"
   prefab: {fileID: 1299442523044704354, guid: 4e19e477d73c3da48830998f5b8682b3, type: 3}
   OnInitialize:
     m_PersistentCalls:
@@ -1576,18 +1574,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onAwake:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+    m_CallsDirty: 1
 --- !u!1 &2027252952
 GameObject:
   m_ObjectHideFlags: 0

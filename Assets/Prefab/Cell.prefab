@@ -165,11 +165,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 936684945485183686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be9364a849c0cc740bb1bad01c88e822, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a088a8fccd5dc8449f0e26b1e397bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToBounceSecond: 0.5
-  _strengthMax: {x: 2, y: 2}
+  _timeToBounceSecond: 1
+  _strengthMax: {x: 1.4, y: 1.4}
   _strengthMin: {x: 0.5, y: 0.5}
   _defaultScaleInFade: {x: 1, y: 1}
 --- !u!1 &1377828024274737611

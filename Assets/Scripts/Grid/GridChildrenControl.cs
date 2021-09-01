@@ -26,8 +26,8 @@ namespace QuizGame.Grid
         public int CellCountInWidth => _cellCountInWidth;
         public int CellCountInHight => _cellCountInHight;
         public Cell[] _cellChildren { get; private set; }
-        public UnityEvent OnInitialize;
-        public Action OnSorted;
+        [SerializeField] private UnityEvent OnInitialize;
+        private Action OnSorted;
         void Start()
         {
             Initialize();
